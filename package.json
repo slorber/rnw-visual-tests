@@ -8,6 +8,7 @@
   "scripts": {
     "test": "playwright test",
     "test:pr": "SITE_URL='https://deploy-preview-3778--react-native.netlify.app/' playwright test",
+    "trigger": "git commit -am \"empty\" --allow-empty && git push",
     "report": "playwright show-report",
     "postinstall": "patch-package"
   },
