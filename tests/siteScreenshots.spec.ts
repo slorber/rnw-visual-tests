@@ -15,14 +15,14 @@ function extractSitemapUrls() {
   return urls;
 }
 
-const BlacklistedPathnames: string[] = [];
+const BlacklistedPathnames: string[] = [
+  // TODO
+];
 
 function isBlacklisted(pathname: string) {
   return (
-    // changelog docs
-    pathname.startsWith("/changelog") ||
-    // versioned docs
-    pathname.match(/^\/docs\/(\d\.\d\.\d)|(next)\//) ||
+    // skip versioned docs
+    pathname.match(/^\/docs\/(\d\.\d\d)|(next)\//) ||
     // manually excluded urls
     BlacklistedPathnames.includes(pathname)
   );
