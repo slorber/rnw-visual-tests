@@ -3,7 +3,7 @@ import { argosScreenshot } from "@argos-ci/playwright";
 import * as fs from "fs";
 import * as cheerio from "cheerio";
 
-const siteUrl = process.env.SITE_URL ?? "https://docusaurus.io";
+const siteUrl = process.env.SITE_URL ?? "https://reactnative.dev";
 
 function extractSitemapUrls() {
   const sitemapString = fs.readFileSync("./sitemap.xml") as any;
@@ -15,26 +15,7 @@ function extractSitemapUrls() {
   return urls;
 }
 
-const BlacklistedPathnames: string[] = [
-  "/feature-requests", // Flaky because of Canny widget
-  "/community/canary", // Flaky because of dynamic canary version fetched from npm
-
-  // TODO remove once MDX 2 PR merged
-  // reports unimportant false positives, see https://app.argos-ci.com/slorber/docusaurus-visual-tests/builds/10/40206590
-  "/docs/api/themes/configuration",
-  // reports unimportant false positives, see https://app.argos-ci.com/slorber/docusaurus-visual-tests/builds/10/40206618
-  "/docs/api/themes/@docusaurus/theme-classic",
-
-  // TODO re-enable it later, index modified for mdx v2
-  "/tests/pages",
-
-  // Legacy MDX v1 code block test page: to update or delete?
-  "/tests/pages/code-block-tests",
-
-  // those new pages only exist in the MDX v2 branch
-  "/tests/pages/markdown-tests-md",
-  "/tests/pages/markdown-tests-mdx",
-];
+const BlacklistedPathnames: string[] = [];
 
 function isBlacklisted(pathname: string) {
   return (
@@ -106,7 +87,7 @@ function createPathnameTest(pathname: string) {
   });
 }
 
-test.describe("Docusaurus site screenshots", () => {
+test.describe("site screenshots", () => {
   const pathnames = getPathnames();
 
   pathnames.forEach(createPathnameTest);
