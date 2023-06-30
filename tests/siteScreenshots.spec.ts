@@ -62,9 +62,14 @@ video {
   aspect-ratio: 16/9;
 }
 
-/* Disable logo animation on homepage https://reactnative.dev/
+/* Disable logo animation on homepage https://reactnative.dev/ */
 svg.LogoAnimation {
   visibility: hidden;
+}
+
+/* Showcase customers are randomized on https://reactnative.dev/showcase */
+div.showcaseCustomers {
+  display: none;
 }
 
 /* Hide SurveyMonkey widgets (note: you can force show them with QS: ?smcx_force_show ) */
