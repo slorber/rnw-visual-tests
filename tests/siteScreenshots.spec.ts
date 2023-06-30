@@ -47,6 +47,7 @@ const stylesheet = `
 iframe, 
 .theme-last-updated,
 .avatar__photo,
+.DocSearch-Button-Keys,
 img[src$=".gif"] {
   visibility: hidden;
 }
