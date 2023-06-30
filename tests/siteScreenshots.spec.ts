@@ -45,20 +45,35 @@ const getPathnames = function (): string[] {
 
 // Hide elements that may vary between prod/preview
 const stylesheet = `
+/* Global + Docusaurus theme flaky elements */
 iframe, 
-article.yt-lite, 
 .theme-last-updated,
 .avatar__photo,
-img[src$=".gif"],
-h2#using-jsx-markup ~ div > div[class*='browserWindowBody']:has(b),
-[class*='playgroundPreview'] {
+img[src$=".gif"] {
   visibility: hidden;
 }
 
-/* Footnotes rendering has changed in MDX v1 => v2: let's ignore footnotes completely */
-.footnotes {
-  display: none;
+
+/* React-Native Website flaky elements */
+
+/* Prevents layout shift in https://reactnative.dev/blog/2019/11/18/react-native-doctor */
+video {
+  visibility: hidden;
+  aspect-ratio: 16/9;
 }
+
+/* Disable logo animation on homepage https://reactnative.dev/
+svg.LogoAnimation {
+  visibility: hidden;
+}
+
+/* Hide SurveyMonkey widgets (note: you can force show them with QS: ?smcx_force_show ) */
+div#__smcx__, 
+div.smcx-widget, 
+div.smcx-modal {
+  visibility: hidden !important;
+}
+
 `;
 
 function pathnameToArgosName(pathname: string): string {
