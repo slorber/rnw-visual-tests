@@ -97,7 +97,6 @@ function pathnameToArgosName(pathname: string): string {
 function createPathnameTest(pathname: string) {
   test(`pathname ${pathname}`, async ({ page }) => {
     const url = siteUrl + pathname;
-    console.log(url);
     await page.goto(url);
     await page.addStyleTag({ content: stylesheet });
     // await expect(page).toHaveScreenshot({ fullPage: true, ...options });
