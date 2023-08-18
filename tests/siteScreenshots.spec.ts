@@ -60,6 +60,11 @@ img[src$=".gif"] {
 
 /* React-Native Website flaky elements */
 
+/* Docs Rating widget produces layout shifts *
+.docs-rating {
+  display: none;
+}
+
 /* Prevents layout shift in https://reactnative.dev/blog/2019/11/18/react-native-doctor */
 video {
   visibility: hidden;
