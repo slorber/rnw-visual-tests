@@ -61,7 +61,7 @@ img[src$=".gif"] {
 /* React-Native Website flaky elements */
 
 /* Docs Rating widget produces layout shifts *
-.docs-rating {
+.docsRating {
   display: none;
 }
 
