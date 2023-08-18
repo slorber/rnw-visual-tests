@@ -107,6 +107,7 @@ function createPathnameTest(pathname: string) {
     await page.goto(url);
     await page.addStyleTag({ content: stylesheet });
     // await expect(page).toHaveScreenshot({ fullPage: true, ...options });
+    await page.waitForLoadState();
     await argosScreenshot(page, pathnameToArgosName(pathname));
   });
 }
