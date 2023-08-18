@@ -45,11 +45,14 @@ const getPathnames = function (): string[] {
 const stylesheet = `
 /* Global + Docusaurus theme flaky elements */
 iframe, 
-.theme-last-updated,
 .avatar__photo,
 .DocSearch-Button-Keys,
 img[src$=".gif"] {
   visibility: hidden;
+}
+
+.theme-last-updated {
+  display: none;
 }
 
 
