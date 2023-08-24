@@ -113,8 +113,11 @@ function createPathnameTest(pathname: string) {
     const url = siteUrl + pathname;
     await page.goto(url);
     await page.addStyleTag({ content: stylesheet });
-    // await expect(page).toHaveScreenshot({ fullPage: true, ...options });
-    await page.waitForLoadState();
+    await argosScreenshot(page, pathnameToArgosName(pathname));
+
+    // TODO dupliocate on purpose, test for flakiness issues
+    await page.goto(url);
+    await page.addStyleTag({ content: stylesheet });
     await argosScreenshot(page, pathnameToArgosName(pathname));
   });
 }

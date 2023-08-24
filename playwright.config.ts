@@ -44,6 +44,21 @@ const config: PlaywrightTestConfig = {
       name: "chromium",
       use: {
         ...devices["Desktop Chrome"],
+        // Attempt to reduce screenshot flakiness
+        // See https://github.com/microsoft/playwright/issues/8161
+        // See https://bugs.chromium.org/p/chromium/issues/detail?id=919955
+        launchOptions: {
+          args: [
+            "--disable-partial-raster",
+            "--disable-skia-runtime-opts",
+            "--disable-system-font-check",
+            "--disable-font-subpixel-positioning",
+            "--disable-lcd-text",
+            "--disable-remote-fonts",
+            "--font-render-hinting=none",
+            "--deterministic-mode",
+          ],
+        },
       },
     },
   ],

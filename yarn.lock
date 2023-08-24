@@ -2,20 +2,20 @@
 # yarn lockfile v1
 
 
-"@argos-ci/cli@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@argos-ci/cli/-/cli-0.4.4.tgz#e5c62ad377312861d90d56993556316415354523"
-  integrity sha512-qthyP+ZSgbVgJXtBSc+4wKHRsQLAYoyMfgnkZYmfEEiISGmrMClEnZtbZa1KnEZDb8FlBae1RM6AZvjENgP9Og==
+"@argos-ci/cli@^0.4.6":
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/@argos-ci/cli/-/cli-0.4.6.tgz#3e3616e97253426d540f92bb3feffb92918dda52"
+  integrity sha512-tqeyOkHIGuVpAqB2okT33HqsltDwuKGbGwJXOZU1kQbuSkUBlp3hxyY28GD/wIe61gLCCYlxfsIh21SdAgLDyg==
   dependencies:
-    "@argos-ci/core" "^0.8.0"
+    "@argos-ci/core" "^0.9.0"
     commander "^9.4.1"
     ora "^6.1.2"
     update-notifier "^6.0.2"
 
-"@argos-ci/core@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@argos-ci/core/-/core-0.8.0.tgz#d739fa46d6742211ceaab41be0fd24588cf1f34d"
-  integrity sha512-MwCeTos8Fov5V+ybrkcFyMVWgsumDRHUokMOgyYt2gdJ5q0LdEp9wNz0VVIDAGSjyLTTbWqdkVCuaOkw5sz3LQ==
+"@argos-ci/core@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@argos-ci/core/-/core-0.9.0.tgz#c92517e5968491a5a35370c4691ea3111396e06e"
+  integrity sha512-gq+vp30ZpaLzs0hhYcs/8dkmyT5DhrPALM/n7sPy62uFq6tFKgGDdCa2NUNPafjsU9Ksj4y3NCHphAAnovLzQg==
   dependencies:
     axios "1.1.2"
     convict "^6.2.3"
@@ -25,10 +25,10 @@
     sharp "^0.31.1"
     tmp "^0.2.1"
 
-"@argos-ci/playwright@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@argos-ci/playwright/-/playwright-0.0.4.tgz#210bc9c7fc93908deadc6f9bb96a180654fbfa9e"
-  integrity sha512-Aiqo7yFuhN+DDy4X6BJnW+0L1RDTjHaTTbAGIJCiQmXefDp3Ic7aqxmt3kOSLsi6KoltFqLbp06rL9XXaoRg9w==
+"@argos-ci/playwright@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@argos-ci/playwright/-/playwright-0.0.6.tgz#f3a297b549389bf910c7a86ca9ec0c6a8d2ea9a4"
+  integrity sha512-Do01jagjITBjQpH/6RcgoW8kB6iu/10HFZkvl8puXKKXcXrRyzipSaYRP2CQryILF+k8NwsfVIBwvFlsOZSNOw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -51,13 +51,15 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@playwright/test@^1.30.0":
-  version "1.30.0"
-  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.30.0.tgz#8c0c4930ff2c7be7b3ec3fd434b2a3b4465ed7cb"
-  integrity sha512-SVxkQw1xvn/Wk/EvBnqWIq6NLo1AppwbYOjNLmyU0R1RoQ3rLEBtmjTnElcnz8VEtn11fptj1ECxK0tgURhajw==
+"@playwright/test@^1.37.1":
+  version "1.37.1"
+  resolved "https://registry.yarnpkg.com/@playwright/test/-/test-1.37.1.tgz#e7f44ae0faf1be52d6360c6bbf689fd0057d9b6f"
+  integrity sha512-bq9zTli3vWJo8S3LwB91U0qDNQDpEXnw7knhxLM0nwDvexQAwx9tO8iKDZSqqneVq+URd/WIoz+BALMqUTgdSg==
   dependencies:
     "@types/node" "*"
-    playwright-core "1.30.0"
+    playwright-core "1.37.1"
+  optionalDependencies:
+    fsevents "2.3.2"
 
 "@pnpm/network.ca-file@^1.0.1":
   version "1.0.2"
@@ -655,6 +657,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
+fsevents@2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
+  integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+
 get-stream@^6.0.0, get-stream@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-6.0.1.tgz#a262d8eef67aced57c2852ad6167526a43cbf7b7"
@@ -1180,10 +1187,10 @@ picomatch@^2.3.1:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
-playwright-core@1.30.0:
-  version "1.30.0"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.30.0.tgz#de987cea2e86669e3b85732d230c277771873285"
-  integrity sha512-7AnRmTCf+GVYhHbLJsGUtskWTE33SwMZkybJ0v6rqR1boxq2x36U7p1vDRV7HO2IwTZgmycracLxPEJI49wu4g==
+playwright-core@1.37.1:
+  version "1.37.1"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.37.1.tgz#cb517d52e2e8cb4fa71957639f1cd105d1683126"
+  integrity sha512-17EuQxlSIYCmEMwzMqusJ2ztDgJePjrbttaefgdsiqeLWidjYz9BxXaTaZWxH1J95SHGk6tjE+dwgWILJoUZfA==
 
 postinstall-postinstall@^2.1.0:
   version "2.1.0"
