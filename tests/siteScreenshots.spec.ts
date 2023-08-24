@@ -112,11 +112,6 @@ function createPathnameTest(pathname: string) {
     await page.goto(url);
     await page.addStyleTag({ content: stylesheet });
     await argosScreenshot(page, pathnameToArgosName(pathname));
-
-    // TODO dupliocate on purpose, test for flakiness issues
-    await page.goto(url);
-    await page.addStyleTag({ content: stylesheet });
-    await argosScreenshot(page, pathnameToArgosName(pathname));
   });
 }
 
