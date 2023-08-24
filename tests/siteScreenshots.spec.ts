@@ -58,11 +58,6 @@ img[src$=".gif"] {
   display: none;
 }
 
-/* TODO not sure why but it's flaky (both img + copyright) */
-.footer__bottom {
-  display: none;
-}
-
 /* React-Native Website flaky elements */
 
 /* Docs Rating widget produces layout shifts */
