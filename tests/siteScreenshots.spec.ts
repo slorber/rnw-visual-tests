@@ -44,6 +44,7 @@ const getPathnames = function (): string[] {
 };
 
 // Hide elements that may vary between prod/preview
+/* language=css */
 const stylesheet = `
 /* Global + Docusaurus theme flaky elements */
 iframe, 
@@ -64,7 +65,7 @@ img[src$=".gif"] {
 
 /* React-Native Website flaky elements */
 
-/* Docs Rating widget produces layout shifts *
+/* Docs Rating widget produces layout shifts */
 .docsRating {
   display: none;
 }
