@@ -47,6 +47,7 @@ const config: PlaywrightTestConfig = {
         // Attempt to reduce screenshot flakiness
         // See https://github.com/microsoft/playwright/issues/8161
         // See https://bugs.chromium.org/p/chromium/issues/detail?id=919955
+        /*
         launchOptions: {
           args: [
             "--disable-partial-raster",
@@ -59,6 +60,7 @@ const config: PlaywrightTestConfig = {
             "--deterministic-mode",
           ],
         },
+         */
       },
     },
   ],
