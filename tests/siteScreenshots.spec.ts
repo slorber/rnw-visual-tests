@@ -4,6 +4,7 @@ import * as fs from "fs";
 import * as cheerio from "cheerio";
 
 const siteUrl = process.env.SITE_URL ?? "https://reactnative.dev";
+const isProd = siteUrl === "https://reactnative.dev";
 
 function extractSitemapUrls() {
   const sitemapString = fs.readFileSync("./sitemap.xml") as any;
@@ -116,7 +117,10 @@ function createPathnameTest(pathname: string) {
   test(`pathname ${pathname}`, async ({ page }) => {
     const url = siteUrl + pathname;
     await page.goto(url);
-    await page.waitForFunction(waitForDocusaurusHydration);
+    if (!isProd) {
+      await page.waitForFunction(waitForDocusaurusHydration);
+    }
+    await page.evaluate(async () => new Promise((r) => requestIdleCallback(r)));
     await page.addStyleTag({ content: stylesheet });
     await argosScreenshot(page, pathnameToArgosName(pathname));
   });
