@@ -7,6 +7,8 @@ const siteUrl =
   process.env.SITE_URL ??
   "https://deploy-preview-3780--react-native.netlify.app";
 
+const isProd = siteUrl === "https://reactnative.dev";
+
 function extractSitemapUrls() {
   const sitemapString = fs.readFileSync("./sitemap.xml") as any;
   const $ = cheerio.load(sitemapString, { xmlMode: true });
@@ -118,7 +120,10 @@ function createPathnameTest(pathname: string) {
   test(`pathname ${pathname}`, async ({ page }) => {
     const url = siteUrl + pathname;
     await page.goto(url);
-    await page.waitForFunction(waitForDocusaurusHydration);
+    if (!isProd) {
+      await page.waitForFunction(waitForDocusaurusHydration);
+    }
+    await page.evaluate(async () => new Promise((r) => requestIdleCallback(r)));
     await page.addStyleTag({ content: stylesheet });
     await argosScreenshot(page, pathnameToArgosName(pathname));
   });
