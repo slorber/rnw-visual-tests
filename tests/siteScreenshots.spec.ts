@@ -6,6 +6,8 @@ import * as cheerio from "cheerio";
 const siteUrl = process.env.SITE_URL ?? "https://reactnative.dev";
 const isProd = siteUrl === "https://reactnative.dev";
 
+console.log({ siteUrl, isProd });
+
 function extractSitemapUrls() {
   const sitemapString = fs.readFileSync("./sitemap.xml") as any;
   const $ = cheerio.load(sitemapString, { xmlMode: true });
