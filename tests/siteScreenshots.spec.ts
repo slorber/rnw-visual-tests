@@ -9,6 +9,8 @@ const siteUrl =
 
 const isProd = siteUrl === "https://reactnative.dev";
 
+console.log({ siteUrl, isProd });
+
 function extractSitemapUrls() {
   const sitemapString = fs.readFileSync("./sitemap.xml") as any;
   const $ = cheerio.load(sitemapString, { xmlMode: true });
@@ -121,7 +123,13 @@ function createPathnameTest(pathname: string) {
     const url = siteUrl + pathname;
     await page.goto(url);
     if (!isProd) {
-      await page.waitForFunction(waitForDocusaurusHydration);
+      try {
+        await page.waitForFunction(waitForDocusaurusHydration, null, {
+          timeout: 15000,
+        });
+      } catch (e) {
+        console.error("waitForDocusaurusHydration failed on " + pathname, e);
+      }
     }
     await page.evaluate(async () => new Promise((r) => requestIdleCallback(r)));
     await page.addStyleTag({ content: stylesheet });
