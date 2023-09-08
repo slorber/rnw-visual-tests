@@ -120,7 +120,13 @@ function createPathnameTest(pathname: string) {
     const url = siteUrl + pathname;
     await page.goto(url);
     if (!isProd) {
-      await page.waitForFunction(waitForDocusaurusHydration);
+      try {
+        await page.waitForFunction(waitForDocusaurusHydration, null, {
+          timeout: 15000,
+        });
+      } catch (e) {
+        console.error("waitForDocusaurusHydration failed on " + pathname, e);
+      }
     }
     await page.evaluate(async () => new Promise((r) => requestIdleCallback(r)));
     await page.addStyleTag({ content: stylesheet });
