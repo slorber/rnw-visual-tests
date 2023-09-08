@@ -119,16 +119,18 @@ function createPathnameTest(pathname: string) {
   test(`pathname ${pathname}`, async ({ page }) => {
     const url = siteUrl + pathname;
     await page.goto(url);
+
+    // Wait a bit
     if (!isProd) {
-      try {
-        await page.waitForFunction(waitForDocusaurusHydration, null, {
-          timeout: 15000,
-        });
-      } catch (e) {
-        console.error("waitForDocusaurusHydration failed on " + pathname, e);
-      }
+      await page.waitForFunction(waitForDocusaurusHydration);
     }
-    await page.evaluate(async () => new Promise((r) => requestIdleCallback(r)));
+    await page.evaluate(async () =>
+      Promise.race([
+        new Promise((r) => requestIdleCallback(r)),
+        new Promise((r) => setTimeout(r, 15000)),
+      ])
+    );
+
     await page.addStyleTag({ content: stylesheet });
     await argosScreenshot(page, pathnameToArgosName(pathname));
   });
