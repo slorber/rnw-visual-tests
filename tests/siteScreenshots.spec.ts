@@ -5,7 +5,7 @@ import * as cheerio from "cheerio";
 
 const siteUrl =
   process.env.SITE_URL ??
-  "https://deploy-preview-3780--react-native.netlify.app";
+  "https://deploy-preview-3903--react-native.netlify.app/";
 
 const isProd = siteUrl === "https://reactnative.dev";
 
