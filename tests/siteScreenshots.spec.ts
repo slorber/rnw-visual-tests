@@ -29,6 +29,10 @@ function isBlacklisted(pathname: string) {
   return (
     // skip versioned docs
     pathname.match(/^\/docs\/(\d\.\d\d)|(next)\//) ||
+    // skip blog tags pages
+    pathname.startsWith("/blog/tags") ||
+    // skip blog paginated pages
+    pathname.startsWith("/blog/page") ||
     // manually excluded urls
     BlacklistedPathnames.includes(pathname)
   );
