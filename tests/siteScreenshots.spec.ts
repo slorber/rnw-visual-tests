@@ -119,17 +119,7 @@ function createPathnameTest(pathname: string) {
   test(`pathname ${pathname}`, async ({ page }) => {
     const url = siteUrl + pathname;
     await page.goto(url);
-
-    // Wait a bit
-    if (!isProd) {
-      await page.waitForFunction(waitForDocusaurusHydration);
-    }
-    await page.evaluate(async () =>
-      Promise.race([
-        new Promise((r) => requestIdleCallback(r)),
-        new Promise((r) => setTimeout(r, 15000)),
-      ])
-    );
+    await page.waitForFunction(waitForDocusaurusHydration);
 
     await page.addStyleTag({ content: stylesheet });
     await argosScreenshot(page, pathnameToArgosName(pathname));
