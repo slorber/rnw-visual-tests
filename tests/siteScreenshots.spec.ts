@@ -3,7 +3,9 @@ import { argosScreenshot } from "@argos-ci/playwright";
 import * as fs from "fs";
 import * as cheerio from "cheerio";
 
-const siteUrl = process.env.SITE_URL ?? "https://reactnative.dev";
+const siteUrl =
+  process.env.SITE_URL ??
+  "https://deploy-preview-4268--react-native.netlify.app";
 const isProd = siteUrl === "https://reactnative.dev";
 
 console.log({ siteUrl, isProd });
