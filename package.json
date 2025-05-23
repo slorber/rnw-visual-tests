@@ -14,7 +14,7 @@
   "dependencies": {
     "@argos-ci/cli": "^1.0.12",
     "@argos-ci/playwright": "^2.0.0",
-    "@playwright/test": "^1.42.1",
+    "@playwright/test": "^1.52.0",
     "cheerio": "^1.0.0-rc.12",
     "patch-package": "^6.5.1",
     "postinstall-postinstall": "^2.1.0",
