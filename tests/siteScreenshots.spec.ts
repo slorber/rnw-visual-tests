@@ -53,6 +53,12 @@ const getPathnames = function (): string[] {
 // Hide elements that may vary between prod/preview
 /* language=css */
 const stylesheet = `
+
+/* TODO remove after v3.8 upgrade */    
+div[class^='colorModeToggle_'] {
+  visibility: hidden;
+}
+    
 /* Global + Docusaurus theme flaky elements */
 iframe, 
 .avatar__photo,
