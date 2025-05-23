@@ -42,7 +42,7 @@ const getPathnames = function (): string[] {
     (pathname) => !isBlacklisted(pathname)
   );
   pathnames.sort();
-  console.log("Pathnames:\n", JSON.stringify(pathnames, null, 2));
+  // console.log("Pathnames:\n", JSON.stringify(pathnames, null, 2));
   console.log("Pathnames before filtering", pathnamesUnfiltered.length);
   console.log("Pathnames after filtering", pathnames.length);
   return pathnames;
@@ -135,6 +135,10 @@ function createPathnameTest(pathname: string) {
     await argosScreenshot(page, pathnameToArgosName(pathname));
   });
 }
+
+// Allow parallel execution within a single test file
+// See https://playwright.dev/docs/test-parallel
+test.describe.configure({ mode: "parallel" });
 
 test.describe("site screenshots", () => {
   const pathnames = getPathnames();
