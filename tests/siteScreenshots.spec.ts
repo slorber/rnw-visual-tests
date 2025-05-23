@@ -52,9 +52,9 @@ const getPathnames = function (): string[] {
 /* language=css */
 const stylesheet = `
 
-/* TODO remove after v3.8 upgrade */    
-div[class^='colorModeToggle_'] {
-  visibility: hidden;
+/* TODO remove after v3.8 upgrade */
+div[class*="colorModeToggle_"] {
+    visibility: hidden;
 }
     
 /* Global + Docusaurus theme flaky elements */
